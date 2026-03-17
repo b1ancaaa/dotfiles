@@ -1,0 +1,13 @@
+return {}
+-- local uv = vim.loop
+--
+-- vim.api.nvim_create_autocmd("BufReadPost", {
+-- 	once = true,
+-- 	callback = function()
+-- 		if uv.fs_stat(uv.cwd() .. "/CMakeLists.txt") then
+-- 			vim.api.nvim_exec_autocmds("User", {
+-- 				pattern = "CmakeProject",
+-- 			})
+-- 		end
+-- 	end,
+-- })
