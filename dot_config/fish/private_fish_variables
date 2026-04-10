@@ -1,5 +1,9 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export ANTHROPIC_AUTH_TOKEN:sk\x2dIbDE43nCm8ndkeqYMWsp0hbj9YkBlqAjoKnIJXQyt2iNAOoV
+SETUVAR --export ANTHROPIC_BASE_URL:https\x3a//a\x2docnfniawgw\x2ecn\x2dshanghai\x2efcapp\x2erun
+SETUVAR --export ANTHROPIC_MODEL:claude\x2dopus\x2d4\x2d6
+SETUVAR --export CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS:1
 SETUVAR VIRTUAL_ENV_DISABLE_PROMPT:true
 SETUVAR __done_min_cmd_duration:10000
 SETUVAR __done_notification_urgency_level:low

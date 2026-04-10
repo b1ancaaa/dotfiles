@@ -80,22 +80,29 @@ set nowritebackup
 set noswapfile
 " 关闭错误提示音
 set vb t_vb=
-" 打通系统剪贴板
-set clipboard=unnamed,unnamedplus
+" 打通系统剪贴板；sudo 进入 root 时跳过，避免访问图形会话时报 X 授权错误
+if has('clipboard') && empty($SUDO_USER) && (exists('$DISPLAY') || exists('$WAYLAND_DISPLAY'))
+    set clipboard=unnamed,unnamedplus
+endif
 
 " shortcuts
 inoremap jk <Esc>
 
 " 开启持久化撤销（undo），即使关闭再打开文件，也能撤销之前的更改
-set undofile
-
-" " undo目录
-if !isdirectory(expand("~/.cache/vim/undo"))
-    call mkdir(expand("~/.cache/vim/undo"), "p")
+if has('persistent_undo')
+    let s:vim_undo_dir = expand("~/.cache/vim/undo")
+    try
+        if !isdirectory(s:vim_undo_dir)
+            call mkdir(s:vim_undo_dir, "p", 0700)
+        endif
+        if isdirectory(s:vim_undo_dir)
+            set undofile
+            let &undodir = s:vim_undo_dir
+        endif
+    catch
+        set noundofile
+    endtry
 endif
-set undodir=~/.cache/vim/undo
-" 剪贴板 gvim的功能
-set clipboard=unnamedplus
 
 " 接管鼠标事件
 set mouse=a

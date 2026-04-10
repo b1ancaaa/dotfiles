@@ -12,6 +12,9 @@ return {
 				border = "rounded",
 				width = 0.8,
 				height = 0.8,
+				keys = {
+					term_normal = false,
+				},
 			},
 		},
 		win = { style = "terminal" },
@@ -199,6 +202,9 @@ return {
 		map("<leader>fc", function()
 			Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
 		end, "Find nvim config file")
+		map("<leader>fC", function()
+			Snacks.picker.files({ cwd = vim.fn.expand("~/.local/share/chezmoi/dot_config/nvim") })
+		end, "Find nvim config file(chezmoi)")
 		map("<leader>f/", Snacks.picker.search_history, "Find search history")
 		map("<leader>fj", Snacks.picker.jumps, "Find jump")
 		map("<leader>ftT", function()

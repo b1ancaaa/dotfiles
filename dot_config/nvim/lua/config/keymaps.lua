@@ -11,5 +11,6 @@ vim.keymap.set({ "n", "x", "o" }, "<S-l>", "$", { desc = "End of  line" })
 
 vim.keymap.set({ "n", "x" }, "Q", ":wq<CR>")
 vim.keymap.set({ "n", "x" }, "qq", ":q<CR>")
+vim.keymap.set({ "n", "x", "i" }, "<C-s>", "<Cmd>wa<CR>", { silent = true, desc = "Save all" })
 
-vim.keymap.set({ "t" }, "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+vim.keymap.set({ "t" }, "<Esc><Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
